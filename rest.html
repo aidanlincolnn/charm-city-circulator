@@ -1,0 +1,260 @@
+		<div>
+		        6: Show the Charm City Circulator ridership when the Ravens play against a specific opponent.<br>  Opponent:
+		        <input type="text" id = "againstRavens"></input>
+		        <button id="cccRavens">Submit</button>
+		</div>
+        <br>
+		<div>
+		        7: Show the average ridership on the Charm City Circulator on days when the Ravens play. <br>
+		        <button id="allRavens">Submit</button>
+		</div>
+        <br>
+        <div>
+                8: Show the average ridership on the Charm City Circulator when the Ravens play grouped by opponent. <br>
+                <button id="ravensOpponents">Submit</button>
+        </div>
+        <br>
+		<div>
+		        9: Show the total Charm City Circulator ridership between dates A and B Dates should be in format MM-DD-YYYY. <br> Date A:
+		        <input type = "text" id ="date1"></input>
+                &nbsp Date B:
+		        <input type = "text" id = "date2"></input>
+		        <br>
+                <button id = "ccBetweenDates">Submit</button>
+		</div>
+        <br>
+		<div>
+		        10: Show the total ridership for a single route (orange, purple, green, banner) between dates A and B Dates should be in format MM-DD-YYYY. <br> Bus Line:
+		        <input type = "text" id ="bus"></input>
+                &nbsp Date A:
+		        <input type = "text" id ="date3"></input>
+		        &nbsp Date B:
+                <input type = "text" id ="date4"></input>
+		        <br>
+                <button id = "ccLineBetweenDates">Submit</button>
+		</div>
+        <br>
+		<div>
+		        11: Show the average ridership of the  Charm City Circulator for a specific day. Format: Month MM, Day DD. <br> Month: 
+                <input type = "text" id = "month"></input>
+                &nbsp Day:
+		        <input type = "text" id = "day"></input>
+		        <br>
+                <button id = "ccOneDay">Submit</button>
+		</div>
+        <br>
+		<div>
+                12: Show the average daily ridership of the Charm City Circulator for a specific month. Format: Month MM. <br> Month:
+                <input type = "text" id = "month1"></input>
+                <br>
+                <button id = "ccOneMonth">Submit</button>
+        </div>
+        <br>
+		<div>
+                13: Show the average daily ridership of the Charm City Circulator for a specific year. Format:  Year YYYY. <br> Year:
+                <input type = "text" id = "year"</input>
+                <br>
+                <button id = "ccOneYear">Submit</button>
+        </div>
+        <br>
+		<div>
+                14: Show the maximum ridership (for a single day) for each bus line between two dates, formatted as MM-DD-YYYY. <br> Date A:
+                <input type = "text" id ="date5"></input>
+                &nbsp Date B:
+                <input type = "text" id = "date6"></input>
+                <br>
+                <button id = "ccHighest">Submit</button>
+        </div>
+        <br>
+		<div>
+                15:  Show the Bus line that had the highest average  Ridership between two dates, formatted as MM-DD-YYYY. <br> Date A:
+                <input type = "text" id ="date7"></input>
+                &nbsp Date B:
+                <input type = "text" id = "date8"></input>
+                <br>
+                <button id = "ccHighestAve">Submit</button>
+        </div>
+        <br>
+        <div>
+                16. Rank the annual events in Baltimore sorted by the total number of Charm City Circulator riders on that day. <br>
+                <button id = "ccEvents">Submit</button>
+        </div>
+        <br>
+        <div>
+                17. Compare the difference in ridership during the Baltimore Grand Prix between 2011 and 2012. <br>
+                <button id = "ccGP">Submit</button>
+        </div>
+	</body>
+
+	<script type="text/javascript">
+
+		var againstRavens = document.getElementById("cccRavens");
+		againstRavens.onclick = function() {
+			var post = new XMLHttpRequest();
+			post.open("POST", "process.py", true);
+			post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			post.send("option=1&data=" + document.getElementById("againstRavens").value);
+
+			post.onload = function() {
+				response = post.response;
+
+				alert(response);
+			}
+		}
+
+		var ravensRidership = document.getElementById("allRavens");
+		ravensRidership.onclick = function() {
+			var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			post.send("option=2");
+
+			post.onload = function() {
+				response = post.response;
+				
+				alert(response);
+			}
+		}
+		
+		var ccBetweenDates = document.getElementById("ccBetweenDates");
+		ccBetweenDates.onclick = function() {
+			var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=3&data1=" + document.getElementById("date1").value + "&data2=" + document.getElementById("date2").value);
+
+            post.onload = function() {
+                response = post.response;
+
+                alert(response);
+            }
+		}
+	
+		var ccLineBetweenDates = document.getElementById("ccLineBetweenDates");
+		ccLineBetweenDates.onclick = function() {
+			var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=4&data1=" + document.getElementById("date3").value + "&data2=" + document.getElementById("date4").value +"&data3=" + document.getElementById("bus").value);
+
+            post.onload = function() {
+                response = post.response;
+
+                alert(response);
+            }
+        }
+
+		var ccOneDay = document.getElementById("ccOneDay");
+        ccOneDay.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=5&data1=" + document.getElementById("day").value + "&data2=" + document.getElementById("month").value);
+
+            post.onload = function() {
+                response = post.response;
+                                
+                alert(response);
+            }
+        }
+		
+		var ccOneMonth = document.getElementById("ccOneMonth");
+        ccOneMonth.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=6&data1=" + document.getElementById("month1").value);
+
+            post.onload = function() {
+                response = post.response;
+                                
+                alert(response);
+            }
+        }
+		
+		var ccOneYear = document.getElementById("ccOneYear");
+        ccOneYear.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=7&data1=" + document.getElementById("year").value);
+
+            post.onload = function() {
+                response = post.response;
+                                
+                alert(response);
+            }
+        }
+
+		var ccHighest= document.getElementById("ccHighest");
+        ccHighest.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=8&data1=" + document.getElementById("date5").value + "&data2=" + document.getElementById("date6").value);
+
+            post.onload = function() {
+                response = post.response;
+
+                alert(response);
+            }
+        }
+		
+		var ccHighestAve= document.getElementById("ccHighestAve");
+        ccHighestAve.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=9&data1=" + document.getElementById("date7").value + "&data2=" + document.getElementById("date8").value);
+
+            post.onload = function() {
+                response = post.response;
+
+                alert(response);
+            }
+         }
+
+		var ravensOpponents = document.getElementById("ravensOpponents");
+        ravensOpponents.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST", "process.py", true);
+            post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            post.send("option=10");
+
+            post.onload = function() {
+                response = post.response;
+                                
+                alert(response);
+            }
+        }
+
+        var ccEvents = document.getElementById("ccEvents");
+        ccEvents.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST","process.py",true);
+            post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            post.send("option=11");
+
+            post.onload = function() {
+                response = post.response;
+
+                alert(response)
+            }
+        }
+        
+        var ccGP = document.getElementById("ccGP");
+        ccGP.onclick = function() {
+            var post = new XMLHttpRequest();
+            post.open("POST","process.py",true);
+            post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            post.send("option=12");
+
+            post.onload = function() {
+                response = post.response;
+                
+                alert(response)
+            }
+        }
+
+	</script>
+</html>

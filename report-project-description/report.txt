@@ -1,0 +1,62 @@
+Section (1)
+    Feel free to examine our previously handed in project proposal.
+
+Section (2)
+    Feel free to examine the attached file cover.txt for our cover page.
+
+Section (3)
+    Our project description and database design has not changed since our phase 1 submission.
+
+Section (4)
+    See populate.py for specific information as to how we loaded our database
+    We have hard-coded queries for some parts of our Database
+    We convert a csv into INSERT queries for the remainder of our database
+    We have a shell script to tear-down our database, then re-populate it
+
+Section (5)
+    We used the dbase server.
+
+Section (6)
+    As a user, to run our code, visit: http://ugrad.cs.jhu.edu/~dwiden/cgi-bin/Databases/app.py
+    As a developer, run:
+        sh setup.sh
+
+    Then there is nothing else to perform.
+
+Section (7)
+    Major Specialization: Security
+        Many of our queries are pre-loaded so the user cannot directly interact with them.  
+        When user interaction is required, data is sanitized to minimize the threat of SQL injection attacks.
+        We run queries that we have written ahead of time, no user-defined queries are run.
+        Our dbparams module is not readable to anyone, so users cannot access login credentials
+        Our application has three distinct parts:
+            Front-end --> the user can only realistically input a single word to be used with queries.
+            Controller --> the user's sanitized input is used for pre-loaded queries.
+            Back-end --> the user has no direct connection to the back-end.
+
+    This application structure allows for safe encapsulation of information and minimizes the risk of extraction.
+
+    Minor Specialization: Complex Extraction
+        Our software automatically populates the database by executing static queries.
+        Our software automatically populates the database by converting a CSV file into.
+        queries dynamically, this converting publicly available information into intelligent INSERT queries
+
+Section (8)
+    Our system is limited to a networked environment.  If you do not have access to the internet, you cannot use our system.
+    We could potentially allow users to enter their own queries; however, this would decrease our system's security.
+
+Section (9)
+    Please visit: http://ugrad.cs.jhu.edu/~dwiden/cgi-bin/Databases/app.py
+    for example output
+
+Section (10)
+    Please examine create.py for our databases DDL
+    Please examine populate.py for sample values in each table (it is trivial to figure out sample values from SQL INSERT queries).
+
+Section (11)
+    Please inspect the attached software at your leisure.
+
+Section (12)
+    Please inspect the attached tarball for our electronic source code.
+
+    

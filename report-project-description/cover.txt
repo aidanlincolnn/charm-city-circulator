@@ -1,0 +1,7 @@
+Team Members: Aidan Fowler, David Widen
+Section: 600.415
+
+Our application is delivered as a web-app
+The front-end is written in HTML/JavaScript
+The controller is written in Python CGI
+The back-end utilizes the course database
